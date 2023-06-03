@@ -5,7 +5,7 @@ import NavigationFavoritos from './NavigationFavoritos';
 import Rickandmorty from '../screen/Rickandmorty';
 import Favoritos from '../screen/Favoritos';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/AntDesign';
+
 export default function Navigation() {
 	const Tab = createBottomTabNavigator();
 	return (
@@ -15,9 +15,6 @@ export default function Navigation() {
 				component={NavigationAccount}
 				options={{
 					tabBarLabel: 'Mi cuenta',
-					tabBarIcon: ({ color, size }) => {
-						<Icon name='user' color={color} size={20} />;
-					},
 				}}
 			/>
 			<Tab.Screen
