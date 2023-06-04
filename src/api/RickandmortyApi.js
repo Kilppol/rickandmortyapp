@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { API_URL } from '@env';
+//import { API_URL } from '@env';
 import axios from 'axios';
-import RickandmortyList from '../src/componets/RickandmortyList';
+import RickandmortyList from '../components/RickandmortyList';
 export default function RickandmortyApi() {
-	const { characters, setCharacters } = useState([]);
+	const API_URL = 'https://rickandmortyapi.com/api/character';
+	const [characters, setCharacters] = useState([]);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -18,7 +19,6 @@ export default function RickandmortyApi() {
 	}, []);
 	return (
 		<View>
-			<Text>RickandmortyApi</Text>
 			<RickandmortyList characters={characters} />
 		</View>
 	);

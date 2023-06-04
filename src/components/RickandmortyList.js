@@ -1,7 +1,5 @@
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { FlatList } from 'react-native-gesture-handler';
 import RickandmortyCard from './RickandmortyCard';
 
 export default function RickandmortyList(props) {
@@ -17,13 +15,12 @@ export default function RickandmortyList(props) {
 					String(characters.id);
 				}}
 				renderItem={({ item }) => <RickandmortyCard characters={item} />}
-				contentContainerStyle={StyleSheet.container}
+				contentContainerStyle={styles.container}
 			/>
+			<Text>Lista</Text>
 		</SafeAreaView>
 	);
 }
 const styles = StyleSheet.create({
-	container: {
-		paddingHorizantal: 15,
-	},
+	container: { paddingHorizontal: 15 },
 });

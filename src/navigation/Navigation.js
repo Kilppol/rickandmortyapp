@@ -3,8 +3,8 @@ import React from 'react';
 import NavigationAccount from './NavigationAccount';
 import NavigationFavoritos from './NavigationFavoritos';
 import Rickandmorty from '../screen/Rickandmorty';
-import Favoritos from '../screen/Favoritos';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import RickandmortyApi from '../api/RickandmortyApi';
 
 export default function Navigation() {
 	const Tab = createBottomTabNavigator();
@@ -19,9 +19,9 @@ export default function Navigation() {
 			/>
 			<Tab.Screen
 				name='Rickandmorty'
-				component={Rickandmorty}
+				component={RickandmortyApi}
 				options={{
-					tabBarLabel: '',
+					tabBarLabel: 'Rick and morty',
 					tabBarIcon: () => renderIconRM(),
 				}}
 			/>
