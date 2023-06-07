@@ -11,6 +11,7 @@ export default function RickandmortyList(props) {
 				data={characters}
 				numColumns={2}
 				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
 				keyExtractor={(characters) => {
 					String(characters.id);
 				}}

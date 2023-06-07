@@ -16,7 +16,7 @@ export default function RickandmortyCard(props) {
 	};
 	return (
 		<View style={estilos.container}>
-			<ScrollView horizontal={true}>
+			<View>
 				<View style={estilos.card}>
 					<View style={estilos.contenidocard}>
 						<Image
@@ -26,9 +26,12 @@ export default function RickandmortyCard(props) {
 							style={estilos.img}
 						/>
 						<Text style={estilos.textoname}>{`${characters.name}`}</Text>
+						<Text
+							style={{ ...estilos.textoname, fontSize: 20 }}
+						>{`${characters.id}`}</Text>
 					</View>
 				</View>
-			</ScrollView>
+			</View>
 		</View>
 	);
 }
@@ -41,7 +44,7 @@ const estilos = StyleSheet.create({
 	textoname: {
 		color: '#526A87',
 		alignSelf: 'center',
-		fontSize: 30,
+		fontSize: 27,
 	},
 	img: {
 		width: 100,
