@@ -20,24 +20,26 @@ export default function RickandmortyCard(props) {
 		});
 	};
 	return (
-		<View style={estilos.container}>
-			<TouchableWithoutFeedback onPress={goToPersonaje}>
-				<View style={estilos.card}>
-					<View style={estilos.contenidocard}>
+		<TouchableWithoutFeedback onPress={goToPersonaje}>
+			<View style={estilos.card}>
+				<View style={estilos.marginCard}>
+					<View style={estilos.colorCard}>
+						<Text style={estilos.number}>
+							# {`${characters.id}`.padStart(3, 0)}
+						</Text>
+						<View style={estilos.containerText}>
+							<Text style={estilos.name} numberOfLines={3}>
+								{characters.name}
+							</Text>
+						</View>
 						<Image
-							source={{
-								url: `${characters.image}`,
-							}}
-							style={estilos.img}
+							source={{ url: characters.image }}
+							style={estilos.image}
 						/>
-						<Text style={estilos.textoname}>{`${characters.name}`}</Text>
-						<Text
-							style={{ ...estilos.textoname, fontSize: 20 }}
-						>{`${characters.id}`}</Text>
 					</View>
 				</View>
-			</TouchableWithoutFeedback>
-		</View>
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
 
@@ -46,45 +48,43 @@ const estilos = StyleSheet.create({
 		alignContent: 'center',
 		alignItems: 'center',
 	},
-	textoname: {
-		color: '#526A87',
-		alignSelf: 'center',
-		fontSize: 27,
-	},
-	img: {
-		width: 100,
-		height: 100,
-		resizeMode: 'cover',
-		alignSelf: 'center',
-		borderRadius: 100,
-		borderWidth: 2,
-		borderColor: '#000',
-	},
 	card: {
-		borderRadius: 6,
-		elevation: 3,
-		backgroundColor: '#fff',
-		shadowOffset: { width: 1, height: 1 },
-		shadowColor: '#333',
+		flexGrow: 1,
+		padding: 16,
+		height: 130,
+		padding: 5,
+	},
+	marginCard: {
+		flex: 1,
+		padding: 5,
+		backgroundColor: 'white',
+		borderRadius: 10,
+		shadowColor: '#000',
 		shadowOpacity: 0.3,
-		shadowRadius: 2,
-		marginHorizontal: 4,
-		marginVertical: 6,
-		width: 190,
-		height: 220,
+		shadowRadius: 4,
+		elevation: 5,
 	},
-	contenidocard: {
-		marginHorizontal: 18,
-		marginVertical: 20,
+	colorCard: {
+		flex: 1,
+		padding: 5,
+		borderRadius: 10,
+		backgroundColor: '#BE81F7',
 	},
-	touchableBotonInicio: {
-		backgroundColor: '#fcf9f9',
-		margin: 64,
-		padding: 8,
-		borderRadius: 8,
-		flexDirection: 'row',
-		alignItems: 'center',
-		borderWidth: 2,
-		borderColor: '#fcf9f9',
+	name: {
+		color: '#fff',
+		fontWeight: 'bold',
+		fontSize: 14,
+	},
+	containerText: {
+		width: 90,
+	},
+	image: {
+		position: 'absolute',
+		bottom: 2,
+		right: 2,
+		width: 75,
+		height: 75,
+		bottom: 10,
+		borderRadius: 10,
 	},
 });
