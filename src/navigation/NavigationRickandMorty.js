@@ -8,7 +8,6 @@ export default function NavigationRickandMorty() {
 	const Stack = createStackNavigator();
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name='Rickandmorty' component={Rickandmorty} />
 			<Stack.Screen
 				name='RickandmortyApi'
 				component={RickandmortyApi}
@@ -17,6 +16,7 @@ export default function NavigationRickandMorty() {
 					headerTransparent: true,
 				}}
 			/>
+			<Stack.Screen name='Rickandmorty' component={Rickandmorty} />
 		</Stack.Navigator>
 	);
 }

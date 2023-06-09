@@ -4,10 +4,9 @@ import RickandmortyCard from './RickandmortyCard';
 
 export default function RickandmortyList(props) {
 	const { characters } = props;
-	const [isLoading, setIsLoading] = useState(true);
-	const nextPageIdentifierRef = useRef();
-	const [isFirstPageReceived, setIsFirstPageReceived] = useState(false);
-	console.log(characters);
+	const loadMore = () => {
+		console.log('cargando mas personajes');
+	};
 	return (
 		<SafeAreaView>
 			<FlatList

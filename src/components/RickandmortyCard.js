@@ -12,7 +12,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function RickandmortyCard(props) {
 	const { characters } = props;
-	const navigation = useNavigation;
+	const navigation = useNavigation();
 	const goToPersonaje = () => {
 		navigation.navigate('Rickandmorty', {
 			id: characters.id,
