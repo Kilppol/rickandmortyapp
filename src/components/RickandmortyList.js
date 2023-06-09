@@ -1,9 +1,12 @@
 import { View, Text, SafeAreaView, FlatList, StyleSheet } from 'react-native';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import RickandmortyCard from './RickandmortyCard';
 
 export default function RickandmortyList(props) {
 	const { characters } = props;
+	const [isLoading, setIsLoading] = useState(true);
+	const nextPageIdentifierRef = useRef();
+	const [isFirstPageReceived, setIsFirstPageReceived] = useState(false);
 	console.log(characters);
 	return (
 		<SafeAreaView>
@@ -17,6 +20,8 @@ export default function RickandmortyList(props) {
 				}}
 				renderItem={({ item }) => <RickandmortyCard characters={item} />}
 				contentContainerStyle={styles.container}
+				onEndReachedThreshold={0.4}
+				//onEndReached={}
 			/>
 			<Text>Lista</Text>
 		</SafeAreaView>

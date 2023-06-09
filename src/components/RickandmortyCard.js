@@ -7,16 +7,21 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export default function RickandmortyCard(props) {
 	const { characters } = props;
-
+	const navigation = useNavigation;
 	const goToPersonaje = () => {
-		console.log(`Conoce mas del personaje: ${characters.name} `);
+		navigation.navigate('Rickandmorty', {
+			id: characters.id,
+			name: characters.name,
+		});
 	};
 	return (
 		<View style={estilos.container}>
-			<View>
+			<TouchableWithoutFeedback onPress={goToPersonaje}>
 				<View style={estilos.card}>
 					<View style={estilos.contenidocard}>
 						<Image
@@ -31,7 +36,7 @@ export default function RickandmortyCard(props) {
 						>{`${characters.id}`}</Text>
 					</View>
 				</View>
-			</View>
+			</TouchableWithoutFeedback>
 		</View>
 	);
 }
