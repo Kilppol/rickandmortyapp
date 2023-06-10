@@ -14,10 +14,7 @@ export default function RickandmortyCard(props) {
 	const { characters } = props;
 	const navigation = useNavigation();
 	const goToPersonaje = () => {
-		navigation.navigate('Rickandmorty', {
-			id: characters.id,
-			name: characters.name,
-		});
+		navigation.navigate('Rickandmorty', { characters: characters });
 	};
 	return (
 		<TouchableWithoutFeedback onPress={goToPersonaje}>

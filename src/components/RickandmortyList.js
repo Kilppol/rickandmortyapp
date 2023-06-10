@@ -25,7 +25,7 @@ export default function RickandmortyList(props) {
 				showsHorizontalScrollIndicator={false}
 				keyExtractor={(character) => String(character.id)}
 				renderItem={({ item, index }) => (
-					<RickandmortyCard characters={item} key={item.id + index} />
+					<RickandmortyCard characters={item} />
 				)}
 				contentContainerStyle={styles.container}
 				onEndReachedThreshold={0.2}
