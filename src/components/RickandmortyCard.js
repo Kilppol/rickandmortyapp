@@ -65,7 +65,7 @@ const estilos = StyleSheet.create({
 		flex: 1,
 		padding: 5,
 		borderRadius: 10,
-		backgroundColor: '#BE81F7',
+		backgroundColor: '#2A2C2E',
 	},
 	name: {
 		color: '#fff',
@@ -83,5 +83,8 @@ const estilos = StyleSheet.create({
 		height: 75,
 		bottom: 10,
 		borderRadius: 10,
+	},
+	number: {
+		color: '#fff',
 	},
 });

@@ -46,6 +46,6 @@ export default function RickandmortyList(props) {
 	);
 }
 const styles = StyleSheet.create({
-	container: { paddingHorizontal: 15 },
+	container: { paddingHorizontal: 15, marginTop: 50 },
 	spinner: { paddingHorizontal: 2, marginTop: 20, marginBottom: 20 },
 });
