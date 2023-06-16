@@ -1,6 +1,6 @@
 import {
 	View,
-	Tex,
+	Text,
 	TextInput,
 	Button,
 	StyleSheet,
@@ -22,8 +22,13 @@ export default function Loginform() {
 			const { username, password } = formData;
 			if (username !== user.name || password !== user.password) {
 				console.log('Usuario o contraseña incorrectos');
+				console.log(user.username);
+				console.log(user.password);
+				console.log(username);
+				console.log(password);
 			} else {
-				console.log('Login incorrecto');
+				console.log('Login correcto');
+				//console.log(useDetail);
 			}
 		},
 	});
