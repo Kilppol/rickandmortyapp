@@ -4,7 +4,7 @@ import React from 'react';
 export default function CrearCuenta(props) {
 	const { navigation } = props;
 	const goToLogin = () => {
-		navigation.navigate('Login');
+		navigation.navigate('Account');
 	};
 	return (
 		<View style={styles.container}>

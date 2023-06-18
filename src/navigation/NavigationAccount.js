@@ -13,6 +13,11 @@ export default function NavigationAccount() {
 			}}
 		>
 			<Stack.Screen name='Account' component={Account} />
+			<Stack.Screen name='CrearCuenta' component={CrearCuenta} />
+			<Stack.Screen
+				name='OlvidasteContrasena'
+				component={OlvidasteContrasena}
+			/>
 		</Stack.Navigator>
 	);
 }
