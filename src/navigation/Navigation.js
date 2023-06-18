@@ -6,6 +6,7 @@ import Rickandmorty from '../screen/Rickandmorty';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import RickandmortyApi from '../api/RickandmortyApi';
 import NavigationRickandMorty from './NavigationRickandMorty';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Navigation() {
 	const Tab = createBottomTabNavigator();
@@ -16,6 +17,7 @@ export default function Navigation() {
 				component={NavigationAccount}
 				options={{
 					tabBarLabel: 'Mi cuenta',
+					tabBarIcon: () => <Icon name='user-circle' size={25} />,
 				}}
 			/>
 			<Tab.Screen
@@ -26,7 +28,14 @@ export default function Navigation() {
 					tabBarIcon: () => renderIconRM(),
 				}}
 			/>
-			<Tab.Screen name='Favoritos' component={NavigationFavoritos} />
+			<Tab.Screen
+				name='Favoritos'
+				component={NavigationFavoritos}
+				options={{
+					tabBarLabel: 'Favoritos',
+					tabBarIcon: () => <Icon name='heart' size={25} />,
+				}}
+			/>
 		</Tab.Navigator>
 	);
 }

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
 import React from 'react';
 import UserData from '../components/Auth/UserData';
 import Loginform from '../components/Auth/Loginform';
