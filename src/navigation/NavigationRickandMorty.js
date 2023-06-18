@@ -14,9 +14,14 @@ export default function NavigationRickandMorty() {
 				options={{
 					title: '',
 					headerTransparent: true,
+					headerShown: false,
 				}}
 			/>
-			<Stack.Screen name='Rickandmorty' component={Rickandmorty} />
+			<Stack.Screen
+				name='Rickandmorty'
+				options={{ headerShown: false }}
+				component={Rickandmorty}
+			/>
 		</Stack.Navigator>
 	);
 }

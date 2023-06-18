@@ -19,12 +19,7 @@ export default function LoginForm(props) {
 	const logoRef = useRef('../../assets/imglogpng.png');
 	const { navigation } = props;
 	const [error, setError] = useState('');
-	const showError = (message) => {
-		setError(message);
-		setTimeout(() => {
-			setError('');
-		}, 3000);
-	};
+
 	const formik = useFormik({
 		initialValues: initialValues(),
 		validationSchema: Yup.object(validationSchema()),
@@ -33,8 +28,10 @@ export default function LoginForm(props) {
 			setError('');
 			const { username, password } = formData;
 			if (username !== user.username || password !== user.password) {
-				showError('Usuario o contraseña incorrectos');
+				console.log('Usuario o contraseña incorrectos');
+				setError('Usuario o contraseña incorrectos');
 			} else {
+				navigation.navigate('Tab');
 				console.log('Login correcto');
 			}
 		},
@@ -109,6 +106,7 @@ export default function LoginForm(props) {
 				</View>
 
 				<ButtonLogin onPress={formik.handleSubmit} />
+				<Text style={styles.error}>{error}</Text>
 
 				<Text style={styles.text3}>
 					No tienes cuenta?{' '}

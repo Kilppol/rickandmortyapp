@@ -5,5 +5,5 @@ import Loginform from '../components/Auth/Loginform';
 
 export default function Account() {
 	const auth = null;
-	return <SafeAreaView>{auth ? <UserData /> : <Loginform />}</SafeAreaView>;
+	return <SafeAreaView>{auth ? <UserData /> : <UserData />}</SafeAreaView>;
 }

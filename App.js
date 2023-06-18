@@ -5,11 +5,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 // import Navigation from "./src/navigation/Navigation"
 import NavigationAccount from './src/navigation/NavigationAccount';
+import NavigationHome from './src/navigation/NavigationHome';
 
 export default function App() {
 	return (
 		<NavigationContainer style={styles.container}>
-			<NavigationAccount />
+			{/* <NavigationAccount /> */}
+			<NavigationHome />
 		</NavigationContainer>
 	);
 }
