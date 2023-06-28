@@ -14,12 +14,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import ButtonLogin from '../ButtonLogin';
 import { user, useDetail } from '../../utils/userDB';
+import useAuth from '../../hooks/useAuth';
 
 export default function LoginForm(props) {
 	const logoRef = useRef('../../assets/imglogpng.png');
 	const { navigation, setAuth } = props;
 	const [error, setError] = useState('');
-
+	const { login } = useAuth();
 	const formik = useFormik({
 		initialValues: initialValues(),
 		validationSchema: Yup.object(validationSchema()),
@@ -34,6 +35,7 @@ export default function LoginForm(props) {
 				setAuth(username);
 				console.log('Login correcto');
 				navigation.navigate('Account');
+				console.log(useAuth());
 			}
 		},
 	});

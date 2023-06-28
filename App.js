@@ -5,12 +5,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigation from './src/navigation/Navigation';
 import NavigationAccount from './src/navigation/NavigationAccount';
+import { AuthProvider } from './src/context/AuthContext';
 
 export default function App() {
 	return (
 		<NavigationContainer style={styles.container}>
 			{/* <NavigationAccount /> */}
-			<Navigation />
+			<AuthProvider>
+				<Navigation />
+			</AuthProvider>
 		</NavigationContainer>
 	);
 }

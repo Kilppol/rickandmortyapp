@@ -2,9 +2,13 @@ import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useDetail } from '../../utils/userDB';
+import useAuth from '../../hooks/useAuth';
+
+import { ItemMenu } from '../../screen/Account';
+import ButtonLogin from '../ButtonLogin';
 
 export default function UserData(props) {
-	const { auth } = props;
+	const { auth, logout } = useAuth();
 
 	const userMatch = useDetail.username === auth ? useDetail : null;
 	//const userMatch = useDetail[auth];
@@ -34,6 +38,13 @@ export default function UserData(props) {
 						</View>
 						<Text style={styles.personajeEspecie}>{email}</Text>
 					</View>
+				</View>
+				<ButtonLogin title='' />
+				<View>
+					<ItemMenu title='Nombre' text={`${firstName} ${lastName}`} />
+					<ItemMenu tile='Usuario' text={'falta nombre de usuario'} />
+					<ItemMenu title='Email' text={email} />
+					<ItemMenu title='Total de favoritos' text={''} />
 				</View>
 			</SafeAreaView>
 		);
