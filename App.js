@@ -10,7 +10,6 @@ import { AuthProvider } from './src/context/AuthContext';
 export default function App() {
 	return (
 		<NavigationContainer style={styles.container}>
-			{/* <NavigationAccount /> */}
 			<AuthProvider>
 				<Navigation />
 			</AuthProvider>

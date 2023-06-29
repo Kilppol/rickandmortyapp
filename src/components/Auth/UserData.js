@@ -10,53 +10,35 @@ import ButtonLogin from '../ButtonLogin';
 export default function UserData(props) {
 	const { auth, logout } = useAuth();
 
-	const userMatch = useDetail.username === auth ? useDetail : null;
-	//const userMatch = useDetail[auth];
-
-	if (userMatch) {
-		const { firstName, lastName, email } = userMatch;
-
-		return (
-			<SafeAreaView style={styles.contenedor}>
-				<View style={styles.contenedorDos}>
-					<Text style={styles.personajeNombre}>{auth}</Text>
-					<View style={styles.personajeContainer}>
-						<Icon
-							name='user-o'
-							size={150}
-							color={'white'}
-							style={styles.icon}
+	return (
+		<SafeAreaView style={styles.contenedor}>
+			<View style={styles.contenedorDos}>
+				<Text style={styles.personajeNombre}>{auth.firstName}</Text>
+				<View style={styles.personajeContainer}>
+					<Icon
+						name='user-o'
+						size={150}
+						color={'white'}
+						style={styles.icon}
+					/>
+					<View style={styles.textoWrapper}>
+						<ItemMenu
+							title='Nombre: '
+							text={`${auth.firstName} ${auth.lastName}`}
 						/>
-						<View style={styles.textoWrapper}>
-							<Text style={styles.textoWrapped}>Nombre</Text>
-						</View>
-						<Text style={styles.personajeEspecie}>
-							{firstName} {lastName}
-						</Text>
-						<View style={styles.textoWrapper}>
-							<Text style={styles.textoWrapped}>Correo</Text>
-						</View>
-						<Text style={styles.personajeEspecie}>{email}</Text>
+						<ItemMenu title='Usuario: ' text={auth.user} />
+						<ItemMenu title='Email: ' text={auth.email} />
+						<ItemMenu title='Total de favoritos: ' text={'0'} />
 					</View>
+					<ButtonLogin
+						title='Cerrar Sesión'
+						onPress={logout}
+						style={{ backgroundColor: 'black' }}
+					/>
 				</View>
-				<ButtonLogin title='' />
-				<View>
-					<ItemMenu title='Nombre' text={`${firstName} ${lastName}`} />
-					<ItemMenu tile='Usuario' text={'falta nombre de usuario'} />
-					<ItemMenu title='Email' text={email} />
-					<ItemMenu title='Total de favoritos' text={''} />
-				</View>
-			</SafeAreaView>
-		);
-	} else {
-		return (
-			<SafeAreaView style={styles.contenedor}>
-				<View style={styles.contenedorDos}>
-					<Text style={styles.personajeNombre}>Usuario no encontrado</Text>
-				</View>
-			</SafeAreaView>
-		);
-	}
+			</View>
+		</SafeAreaView>
+	);
 }
 
 const styles = StyleSheet.create({
@@ -91,15 +73,16 @@ const styles = StyleSheet.create({
 		height: '80%',
 	},
 	icon: {
-		position: 'absolute',
-		top: 20,
-		left: 20,
+		position: 'relative',
+		alignSelf: 'center',
 	},
 	textoWrapper: {
 		marginTop: 10,
 		backgroundColor: 'white',
 		width: 300,
 		alignItems: 'center',
+		borderRadius: 20,
+		alignItems: 'left',
 	},
 	textoWrapped: {
 		fontSize: 20,

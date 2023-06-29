@@ -7,6 +7,7 @@ export const useDetail = {
 	firstName: 'Ricardo',
 	lastName: 'Vallejo',
 	email: '2020371031@uteq.edu.mx',
+	user: 'kilppol',
 
 	// ricardovallejo: {
 	// 	username: 'ricardovallejo',

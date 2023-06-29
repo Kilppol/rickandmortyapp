@@ -18,7 +18,7 @@ import useAuth from '../../hooks/useAuth';
 
 export default function LoginForm(props) {
 	const logoRef = useRef('../../assets/imglogpng.png');
-	const { navigation, setAuth } = props;
+	const { navigation } = props;
 	const [error, setError] = useState('');
 	const { login } = useAuth();
 	const formik = useFormik({
@@ -32,10 +32,11 @@ export default function LoginForm(props) {
 				console.log('Usuario o contraseña incorrectos');
 				setError('Usuario o contraseña incorrectos');
 			} else {
-				setAuth(username);
+				//setAuth(username);
 				console.log('Login correcto');
+				//console.log('auth:' + useAuth());
 				navigation.navigate('Account');
-				console.log(useAuth());
+				login(useDetail);
 			}
 		},
 	});
@@ -108,7 +109,10 @@ export default function LoginForm(props) {
 					</Text>
 				</View>
 
-				<ButtonLogin onPress={formik.handleSubmit} />
+				<ButtonLogin
+					onPress={formik.handleSubmit}
+					title='Iniciar Sesión '
+				/>
 				<Text style={styles.error}>{error}</Text>
 
 				<Text style={styles.text3}>
