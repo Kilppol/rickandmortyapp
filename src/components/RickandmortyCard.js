@@ -11,9 +11,9 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import useAuth from '../hooks/useAuth';
+import Favorito from './Personajes/Favorito';
 
 export default function RickandmortyCard(props) {
-	const { auth } = useAuth();
 	const { characters } = props;
 	const navigation = useNavigation();
 	const goToPersonaje = () => {
@@ -32,14 +32,7 @@ export default function RickandmortyCard(props) {
 								{characters.name}
 							</Text>
 						</View>
-						{auth ? (
-							<Icon
-								name='heart'
-								size={30}
-								color={'white'}
-								style={estilos.icon}
-							/>
-						) : null}
+
 						<Image
 							source={{ url: characters.image }}
 							style={estilos.image}

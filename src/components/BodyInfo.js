@@ -1,13 +1,18 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import React from 'react';
-
-export default function BodyInfo({ characters }) {
+import useAuth from '../hooks/useAuth';
+import Favorito from './Personajes/Favorito';
+export default function BodyInfo({ characters, props }) {
+	//const { params } = props;
+	const { auth } = useAuth();
 	const formatEpisode = (url) => {
 		const episodeNumber = url.split('/').pop();
 		return `Episodio ${episodeNumber}`;
 	};
+	const id = characters.id;
 	return (
 		<View style={styles.personajeText}>
+			{auth && <Favorito id={id} />}
 			<View style={styles.textoWrapper}>
 				<Text style={styles.textoWrapped}>Species</Text>
 			</View>
