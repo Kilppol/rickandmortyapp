@@ -1,13 +1,13 @@
 import { View, Text, SafeAreaView, StyleSheet, Image } from 'react-native';
 import React from 'react';
-import useAuth from '../hooks/useAuth';
+
 import Favorito from './Personajes/Favorito';
 
 export default function HeaderInfo({ characters }) {
 	console.log('characters:' + characters);
 	let estadoColor = '';
 
-	const { auth } = useAuth();
+	
 
 	switch (characters.status) {
 		case 'Alive':

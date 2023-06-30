@@ -14,6 +14,7 @@ import BodyInfo from '../components/BodyInfo';
 
 export default function Rickandmorty({ route }) {
 	const { characters } = route.params;
+
 	const navigation = useNavigation();
 	React.useLayoutEffect(() => {
 		navigation.setOptions({ headerShown: false });
@@ -24,6 +25,7 @@ export default function Rickandmorty({ route }) {
 			<View style={styles.contenedorDos}>
 				<Text style={styles.personajeNombre}>{characters.name}</Text>
 				<View style={styles.personajeContainer}>
+
 					<HeaderInfo characters={characters} />
 					<BodyInfo characters={characters} />
 				</View>
