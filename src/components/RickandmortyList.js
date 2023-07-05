@@ -41,7 +41,7 @@ export default function RickandmortyList(props) {
 				}
 			/>
 
-			<Text>Lista</Text>
+			{/* <Text>Lista</Text> */}
 		</SafeAreaView>
 	);
 }
