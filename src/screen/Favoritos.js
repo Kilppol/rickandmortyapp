@@ -44,7 +44,7 @@ export default function Favoritos(props) {
 					}
 				})();
 			}
-		}, auth)
+		}, [auth])
 	);
 	const goToLoginForm = () => {
 		navigation.navigate('Account');
