@@ -55,13 +55,13 @@ export default function LoginForm(props) {
 		};
 	}
 
-	const goToCrearCuenta = () => {
-		navigation.navigate('CrearCuenta');
-	};
+	// const goToCrearCuenta = () => {
+	// 	navigation.navigate('CrearCuenta');
+	// };
 
-	const goToOlvidaste = () => {
-		navigation.navigate('OlvidasteContrasena');
-	};
+	// const goToOlvidaste = () => {
+	// 	navigation.navigate('OlvidasteContrasena');
+	// };
 
 	return (
 		<View style={styles.mainContainer}>
@@ -104,9 +104,9 @@ export default function LoginForm(props) {
 
 					<Text style={styles.error}>{formik.errors.password}</Text>
 
-					<Text style={styles.text2} onPress={goToOlvidaste}>
+					{/* <Text style={styles.text2} onPress={goToOlvidaste}>
 						Olvidaste tu contraseña
-					</Text>
+					</Text> */}
 				</View>
 
 				<ButtonLogin
@@ -115,12 +115,12 @@ export default function LoginForm(props) {
 				/>
 				<Text style={styles.error}>{error}</Text>
 
-				<Text style={styles.text3}>
+				{/* <Text style={styles.text3}>
 					No tienes cuenta?{' '}
 					<Text style={styles.boldText} onPress={goToCrearCuenta}>
 						Crear
 					</Text>
-				</Text>
+				</Text> */}
 			</View>
 		</View>
 	);
