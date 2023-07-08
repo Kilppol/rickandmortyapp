@@ -1,14 +1,44 @@
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useDetail } from '../../utils/userDB';
 import useAuth from '../../hooks/useAuth';
 
 import { ItemMenu } from '../../screen/Account';
 import ButtonLogin from '../ButtonLogin';
+import { getFavoriteApi } from '../../api/favorito';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function UserData(props) {
 	const { auth, logout } = useAuth();
+	const [favoriteCount, setFavoriteCount] = React.useState(0);
+
+	useFocusEffect(
+		useCallback(() => {
+			const fetchFavoriteCount = async () => {
+				try {
+					const favorites = await getFavoriteApi();
+					setFavoriteCount(favorites.length);
+				} catch (error) {
+					console.log(error);
+				}
+			};
+
+			fetchFavoriteCount();
+		}, [])
+	);
+	React.useEffect(() => {
+		const fetchFavoriteCount = async () => {
+			try {
+				const favorites = await getFavoriteApi();
+				setFavoriteCount(favorites.length);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchFavoriteCount();
+	}, []);
 
 	return (
 		<SafeAreaView style={styles.contenedor}>
@@ -28,7 +58,10 @@ export default function UserData(props) {
 						/>
 						<ItemMenu title='Usuario: ' text={auth.user} />
 						<ItemMenu title='Email: ' text={auth.email} />
-						<ItemMenu title='Total de favoritos: ' text={'0'} />
+						<ItemMenu
+							title='Total de favoritos: '
+							text={favoriteCount.toString()}
+						/>
 					</View>
 					<ButtonLogin
 						title='Cerrar Sesión'
